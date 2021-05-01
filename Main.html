@@ -1,63 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link rel = "stylesheet" type = "text/css" href ="MainStyle.css">
-</head>
-<body>
-    <div class="navigation">
-        <h3 class="logo">GOOD USE</h3>
-        <div class="sections">
-            <div class="dropdown">
-                <p>Pages</p>
-                <div class="dropdown-content">
-                    <a href="#">Home</a>
-                    <a href="#">Give</a>
-                    <a href="#">Find</a>
-                    <a href="#">About</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Good Use</title>
+        <link rel="stylesheet" type="text/css" href="MainStyle.css" />
+    </head>
+    <body>
+        <div class="navigation">
+            <h3 class="logo">GOOD USE</h3>
+            <div class="sections">
+                <div class="dropdown">
+                    <p>Pages</p>
+                    <div class="dropdown-content">
+                        <a href="#">Home</a>
+                        <a href="#">Give</a>
+                        <a href="#">Find</a>
+                        <a href="#">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <p>Account</p>
+                    <div class="dropdown-content">
+                        <a href="#">User Name</a>
+                        <a href="#">Email Address</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <p>Settings</p>
+                    <div class="dropdown-content">
+                        <a href="#">Language</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <p>Messages</p>
+                    <div class="dropdown-content">
+                        <a href="#">unread</a>
+                    </div>
                 </div>
             </div>
-            <div class="dropdown">
-                <p>Account</p>
-                <div class="dropdown-content">
-                    <a href="#">User Name</a>
-                    <a href="#">Email Address</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <p>Settings</p>
-                <div class="dropdown-content">
-                    <a href="#">Language</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <p>Messages</p>
-                <div class="dropdown-content">
-                    <a href="#">unread</a>
-                </div>
+            <div class="sign-in">
+                <h4>Sign In</h4>
             </div>
         </div>
-        <div class="sign-in">
-            <h4>Sign In</h4>
+        <div class="main-content">
+            <div class="give">
+                <img src="photos/2.png" width="300px" height="280px" />
+                <p
+                    style="
+                        font-family: Apple Chancery;
+                        font-size: 4.4rem;
+                        color: rgb(89, 91, 92);
+                        margin: 0%;
+                    "
+                >
+                    Give the things you don't use
+                </p>
+            </div>
+            <div class="find">
+                <p
+                    style="
+                        font-family: Apple Chancery;
+                        font-size: 4.4rem;
+                        color: rgb(89, 91, 92);
+                        margin: 0%;
+                    "
+                >
+                    Find the things you are looking for
+                </p>
+                <img src="photos/1.png" width="300px" height="280px" />
+            </div>
         </div>
-    </div>
-    <div class="main-content">
-        <div class="dont-use">
-            <img src="2.png" width="300px" height="280px">
-            <p style ="font-family:Apple Chancery; font-size:4.4rem; color:rgb(89, 91, 92);margin:0%">Give the things you don't use</p>
+        <div class="btn">
+            <button id="button1">Give</button>
+            <button id="button2" onclick="find()">Find</button>
         </div>
-        <div class="find">
-            <p style ="font-family:Apple Chancery; font-size:4.4rem; color:rgb(89, 91, 92); margin:0%">Find the things you are looking for</p>
-            <img src="1.png" width="300px" height="280px">
+        <div class="find-page">
+            <div class="options">
+                <!-- Search -->
+                <div class="search">
+                    <input
+                        type="text"
+                        id="search-box"
+                        placeholder="Search for items..."
+                    />
+                </div>
+                <!-- Category -->
+                <div class="cate-dropdown">
+                    <div class="category">
+                        <img id="cate-icon" src="photos/category.png" />
+                        <p>Category</p>
+                        <div class="dropdown-content" style="margin-top:4rem; margin-left:-10px; width:206px">
+                            <a href="#">All</a>
+                            <a href="#">Vehicle</a>
+                            <a href="#">Beauty</a>
+                            <a href="#">Clothes</a>
+                            <a href="#">Bag</a>
+                            <a href="#">Electronics</a>
+                            <a href="#">Furniture</a>
+                            <a href="#">Baby Products</a>
+                            <a href="#">Arts</a>
+                            <a href="#">Kitchen</a>
+                            <a href="#">Outdoors</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product" id="product"></div>
         </div>
-    </div>
-    <div class="btn">
-        <button id="button1">Give</button>
-        <button id="button2">Find</button>
-    </div>
-</body>
-
+    </body>
+    <script src="main.js" type="text/javascript"></script>
+    <script src="product.js" type="text/javascript"></script>
 </html>
