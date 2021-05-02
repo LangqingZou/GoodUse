@@ -208,7 +208,7 @@ h4 {
 }
 
 .options{
-    width:400px;
+    width:350px;
 }
 
 .product{
@@ -218,6 +218,7 @@ h4 {
 
 .find-page{
     display:flex;
+    margin-top:10px;
 }
 
 .card-body{
@@ -239,4 +240,40 @@ h4 {
     background-color:rgb(252, 248, 242);
     color:rgb(89, 91, 92);
     margin:5px;
+}
+
+.filterBy{
+    display:none;
+    width: 300px;
+}
+
+.filterBy-body{
+    width: 205px;
+    height: 210px;
+    border: 2px solid #d1d9e6;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.filterBy-body p, .filterBy-body label, .priceFilter-body label{
+    color:rgb(89, 91, 92);
+    font-size: 1.1rem;
+}
+
+.priceFilter{
+    display:none;
+    height: 200px;
+    width: 250px;
+}
+
+.priceFilter-body{
+    width:190px;
+    margin-left:40px;
+    border: 2px solid #d1d9e6;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
+    margin-top: 35px;
+    padding: 10px;
 }

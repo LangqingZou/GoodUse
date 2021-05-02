@@ -86,24 +86,94 @@
                         placeholder="Search for items..."
                     />
                 </div>
-                <!-- Category -->
+                <!-- Category Filter -->
                 <div class="cate-dropdown">
                     <div class="category">
                         <img id="cate-icon" src="photos/category.png" />
                         <p>Category</p>
-                        <div class="dropdown-content" style="margin-top:4rem; margin-left:-10px; width:206px">
-                            <a href="#">All</a>
-                            <a href="#">Vehicle</a>
-                            <a href="#">Beauty</a>
-                            <a href="#">Clothes</a>
-                            <a href="#">Bag</a>
-                            <a href="#">Electronics</a>
-                            <a href="#">Furniture</a>
-                            <a href="#">Baby Products</a>
-                            <a href="#">Arts</a>
-                            <a href="#">Kitchen</a>
-                            <a href="#">Outdoors</a>
+                        <div
+                            class="dropdown-content"
+                            ,
+                            id="category-content"
+                            style="
+                                margin-top: 4rem;
+                                margin-left: -10px;
+                                width: 206px;
+                            "
+                        >
+                            <a id="All">All</a>
+                            <a id="Vehicle">Vehicle</a>
+                            <a id="Beauty">Beauty</a>
+                            <a id="Clothes">Clothes</a>
+                            <a id="Bag">Bag</a>
+                            <a id="Electronics">Electronics</a>
+                            <a id="Furniture">Furniture</a>
+                            <a id="Baby Products">Baby Products</a>
+                            <a id="Arts">Arts</a>
+                            <a id="Kitchen">Kitchen</a>
+                            <a id="Outdoors">Outdoors</a>
                         </div>
+                    </div>
+                </div>
+                <!-- Condition Filter -->
+                <div class="filterBy">
+                    <div class="filterBy-body" id="filterBy-body">
+                        <p style="text-align: center; color: rgb(89, 91, 92)">
+                            Filter By
+                        </p>
+                        <input
+                            type="checkbox"
+                            id="New"
+                            class="condition-filter"
+                            onclick="clickCheckBox()"
+                        />
+                        <label for="New"> New </label><br /><br />
+                        <input
+                            type="checkbox"
+                            id="Used but Like New"
+                            class="condition-filter"
+                            onclick="clickCheckBox()"
+                        />
+                        <label for="Used - Like New"> Used - Like New </label
+                        ><br /><br />
+                        <input
+                            type="checkbox"
+                            id="Used but Good"
+                            class="condition-filter"
+                            onclick="clickCheckBox()"
+                        />
+                        <label for="Used - Good"> Used - Good </label
+                        ><br /><br />
+                        <input
+                            type="checkbox"
+                            id="Used but Fair"
+                            class="condition-filter"
+                            onclick="clickCheckBox()"
+                        />
+                        <label for="Used - Fair"> Used - Fair </label>
+                    </div>
+                </div>
+                <!-- Price Filter -->
+                <div class="priceFilter">
+                    <div class="priceFilter-body" id="priceFilter-body">
+                        <p style="text-align: center; color: rgb(89, 91, 92)">
+                            Sort By
+                        </p>
+                        <input
+                            type="radio"
+                            id="low-to-high"
+                            name="prices"
+                            onclick="sort(1)"
+                        />
+                        <label for="low-to-high">Price:low-to-high</label
+                        ><br /><br />
+                        <input
+                            type="radio"
+                            id="high-to-low"
+                            name="prices"
+                            onclick="sort(2)"
+                        />
+                        <label for="high-to-low">Price:high-to-low</label><br />
                     </div>
                 </div>
             </div>
