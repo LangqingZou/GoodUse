@@ -39,7 +39,7 @@ body {
     display: block;
 }
 
-.dropdown-content {
+.dropdown-content, .productDetails-body {
     background-color: rgb(252, 248, 242);
     padding-top: 10px;
     padding-bottom: 10px;
@@ -71,7 +71,7 @@ body {
 
 .sections {
     display: flex;
-    width: 900px;
+    width: 800px;
     padding-right: 40px;
 }
 
@@ -92,6 +92,29 @@ h4 {
     border-radius: 8px;
     box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
 }
+
+/* .shopping-car{
+    width:150px;
+    height:60px;
+} */
+
+/* .shopping-car-body{
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
+    height: 50px;
+    margin-top: 17px;
+    margin-left: 100px;
+    width: 150px;
+    padding-left:5px;
+} */
+
+.shopping-car-body img{
+    width:35px;
+    height:35px ;
+    padding-top:10px;
+}
+
 
 .main-content {
     display: inline-flex;
@@ -114,6 +137,7 @@ h4 {
     display: inline-flex;
 }
 
+/* give and find buttons*/
 .btn button {
     background-color: rgb(252, 248, 242);
     text-align: center;
@@ -137,7 +161,7 @@ h4 {
     margin-bottom: 10px;
 }
 
-.btn button:hover {
+.btn button:hover, .details button:hover, .addon-btn button:hover {
     box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
 }
 
@@ -209,11 +233,12 @@ h4 {
 
 .options{
     width:350px;
+    margin-top: 6px;
 }
 
 .product{
     width:900px;
-    padding-top: 5px;
+    padding-top: 6px;
 }
 
 .find-page{
@@ -231,7 +256,7 @@ h4 {
     margin:20px;
 }
 
-.addon-btn button, .details{
+.addon-btn button, .details button{
     width:70px;
     height:35px;
     border-radius: 6px;
@@ -240,6 +265,7 @@ h4 {
     background-color:rgb(252, 248, 242);
     color:rgb(89, 91, 92);
     margin:5px;
+    font-size: 0.8rem;
 }
 
 .filterBy{
@@ -257,7 +283,7 @@ h4 {
     margin-top: 10px;
 }
 
-.filterBy-body p, .filterBy-body label, .priceFilter-body label{
+.filterBy-body p, .filterBy-body label, .priceFilter-body label, .productDetails-body p{
     color:rgb(89, 91, 92);
     font-size: 1.1rem;
 }
@@ -276,4 +302,23 @@ h4 {
     box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
     margin-top: 35px;
     padding: 10px;
+}
+
+.productDetails{
+    width: 250px;
+    height: 240px;
+}
+
+.show {
+    display: block;
+}
+
+.productDetails-body{
+    width:230px;
+    height:220px;
+    border: 2px solid #d1d9e6;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #fff;
+    padding: 10px;
+
 }

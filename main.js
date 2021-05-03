@@ -74,7 +74,8 @@ function addProduct(name, price) {
                 <img class="icon" src="photos/add_to_shoppingcart.png" style="width:20px">
                 <span style="font-size:0.8rem"> Add </span>
             </div>
-            <div class="details" style="text-align:center; line-height:35px">
+            <div class="details" id="details-${name}">
+                <button id="details-${name}" onclick="getDetails(this.id)">
                 <span> Details </span>
             </div>
         </div>
@@ -198,6 +199,35 @@ function sort(x){
                     addProduct(temp[k].name,temp[k].price);
                 }
             }
+        }
+    }
+}
+
+
+function getDetails(productID){
+    for(let i=0; i<products.length; i++){
+        if(productID.includes(products[i].name)){
+            console.log(productID);
+            var myProduct = products[i];
+            var div = document.createElement("div");
+            div.id = products[i].name;
+            div.className = "productDetails";
+            //console.log(myProduct.name);
+            div.innerHTML = 
+            `
+            <div class="productDetails-body" id="productDetails-body-${myProduct.name}">
+                <p id="p-name-${myProduct.name}">Name: ${myProduct.name}</p>
+                <p id="p-name-${myProduct.band}">Brand: ${myProduct.brand}</p>
+                <p id="p-name-${myProduct.price}">Price: $ ${myProduct.price}</p>
+                <p id="p-name-${myProduct.condition}">Condition: ${myProduct.condition}</p>
+                <p id="p-name-${myProduct.location}">Location: ${myProduct.location}</p>
+                <p id="p-name-${myProduct.description}">Description: ${myProduct.description}</p>
+            </div>
+            `;
+            var id1 = "details-"+myProduct.name;
+            var id2 = "productDetails-body-"+myProduct.name;
+            document.getElementById(id1).appendChild(div);
+            document.getElementById(id2).classList.toggle("show");
         }
     }
 }
