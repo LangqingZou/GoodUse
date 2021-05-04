@@ -2,7 +2,13 @@
 var cards = document.getElementsByClassName("card");
 // Flag of price filter, flag is false before clicking
 var flagPrice = false;
-
+// Quantity of products in shopping cart
+var number = 0;
+// Product added to cart
+var productInCart = {};
+var tempNumber =0;
+var firstClickShoppingCart=0;
+var subtotal = 0;
 
 /**
  * @description Function responsible for removing the all cards that are already in the page, then add new cards
@@ -73,6 +79,7 @@ function addProduct(name, price) {
                 <button id="cart-add-${name}" onclick="addToCart(this.id)">
                 <img class="icon" src="photos/add_to_shoppingcart.png" style="width:20px">
                 <span style="font-size:0.8rem"> Add </span>
+                </button>
             </div>
             <div class="details" id="details-${name}">
                 <button id="details-${name}" onclick="getDetails(this.id)">
@@ -204,6 +211,10 @@ function sort(x){
 }
 
 
+/**
+ * @description Function responsible for showing the details of product
+ * @param productID The id of clicked product
+ */
 function getDetails(productID){
     for(let i=0; i<products.length; i++){
         if(productID.includes(products[i].name)){
@@ -231,3 +242,113 @@ function getDetails(productID){
         }
     }
 }
+
+
+function addToCart(id){
+    tempNumber=number;
+    number++;
+    //console.log(id);
+    for(let i=0; i<products.length; i++){
+        if(id.includes(products[i].name)){
+            if(products[i].name in productInCart){
+                productInCart[products[i].name]++;
+            }else{
+                productInCart[products[i].name] = 1;
+            }
+        }
+    }
+    //console.log(productInCart);
+    showProductNumber();
+}
+
+
+function showProductNumber(){
+    var div = document.getElementById("productQuantity");
+    div.innerHTML = 
+    `
+    <p style="font-size:1rem;margin:0;text-align:center;line-height:35px;color:rgb(89, 91, 92)">(${number})</p>
+    `;
+}
+
+
+function clickShoppingCart(){
+    firstClickShoppingCart++;
+    document.getElementById("find-page").classList.toggle("hide");
+    document.getElementById("main-content").classList.toggle("hide");
+    document.getElementById("btn").classList.toggle("hide");
+    if(firstClickShoppingCart==1){
+        const div = document.createElement("div");
+        div.className = "myCart";
+        div.id = "myCart";
+        div.innerHTML = 
+        `
+        <div class="myCartList" id="myCartList">
+            <p style="font-size:2rem;text-align:center;color:rgb(89, 91, 92)"> My Cart</p>
+        </div>
+        `;
+        document.body.appendChild(div);
+    }
+    if(number==0 && firstClickShoppingCart==1){
+        const div = document.createElement("div");
+        div.className = "emptyCart";
+        div.id = "emptyCart";
+        div.innerHTML = 
+        `
+        <p>Your cart is empty</p>
+        `;
+        document.getElementById("myCartList").appendChild(div);
+    }else{
+        if(number>0){
+            removeDiv("emptyCart");
+        }
+        if(number>tempNumber){
+            removeDiv("cartItem");
+            removeDiv("subtotal");
+            for(let p in productInCart){
+                showProduct(p);
+            }
+            tempNumber++;
+            const div = document.createElement("div");
+            div.className = "subtotal";
+            div.id = "subtotal";
+            div.innerHTML = 
+            `
+            <hr>
+            <p>SUBTOTAL</p>
+            <p>$ ${subtotal}</p>
+            `;
+            subtotal=0;
+            document.getElementById("myCartList").appendChild(div);
+        }
+    }  
+}
+
+
+function showProduct(product){
+    var p;
+    for(let i=0; i<products.length; i++){
+        if(products[i].name == product){
+            p = products[i];
+        }
+    }
+    subtotal+=p.price * productInCart[product];
+    const div = document.createElement("div");
+    div.className = "cartItem"
+    div.id = "cartItem";
+    div.innerHTML = 
+    `
+    <hr>
+    <p>Name: ${p.name}</p>
+    <p>Price: $ ${p.price * productInCart[product]}</p>
+    <p>Quantity: ${productInCart[product]}</p>
+    `;
+    document.getElementById("myCartList").appendChild(div);
+}
+
+// function calculate(){
+//     var total=0;
+//     for(let i in productInCart){
+//         total += productInCart[i];
+//     }
+//     return total;
+// }

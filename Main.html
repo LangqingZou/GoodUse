@@ -7,7 +7,7 @@
         <title>Good Use</title>
         <link rel="stylesheet" type="text/css" href="MainStyle.css" />
     </head>
-    <body>
+    <body onload="showProductNumber()">
         <div class="navigation">
             <h3 class="logo">GOOD USE</h3>
             <div class="sections">
@@ -40,18 +40,20 @@
                     </div>
                 </div>
             </div>
-            <div class="shopping-car">
-                    <div class="shopping-car-body">
-                    <img src="photos/shoppingcar.png"/>
-                    <span style="text-align:center;color:rgb(89, 91, 92);">My Cart</span>
-                    <div class="productQuantity"></div>
+            <div class="shoppingcart-signin">
+                <div class="shopping-car">
+                    <button class="shopping-car-btn" style="display:inline-flex" onclick="clickShoppingCart()">
+                        <img src="photos/shoppingcar.png"/>
+                        <div class="productQuantity" id="productQuantity"></div>
+                    </button>
+                        
+                </div>
+                <div class="sign-in">
+                    <h4>Sign In</h4>
                 </div>
             </div>
-            <div class="sign-in">
-                <h4>Sign In</h4>
-            </div>
         </div>
-        <div class="main-content">
+        <div class="main-content" id="main-content">
             <div class="give">
                 <img src="photos/2.png" width="300px" height="280px" />
                 <p
@@ -65,7 +67,7 @@
                     Give the things you don't use
                 </p>
             </div>
-            <div class="find">
+            <div class="find" id="find">
                 <p
                     style="
                         font-family: Apple Chancery;
@@ -79,11 +81,11 @@
                 <img src="photos/1.png" width="300px" height="280px" />
             </div>
         </div>
-        <div class="btn">
+        <div class="btn" id="btn">
             <button id="button1">Give</button>
             <button id="button2" onclick="find()">Find</button>
         </div>
-        <div class="find-page">
+        <div class="find-page" id="find-page">
             <div class="options">
                 <!-- Search -->
                 <div class="search">
