@@ -366,3 +366,27 @@ function showProduct(product){
     `;
     document.getElementById("myCartList").appendChild(div);
 }
+
+
+/**
+ * @description Function responsible for showing the products according to the inputs in search bar
+ */
+function search(){
+    let search = document.getElementById("search-box");
+    let lowercaseSearch = search.value.toLowerCase();
+    for (let i = 0; i < cards.length; i++) {
+        let cardName = cards[i].querySelector("p").innerHTML;
+        for (let j = 0; j < products.length; j++) {
+            if (products[j].name == cardName) {
+                if (cardName.toLowerCase().indexOf(lowercaseSearch) > -1) {
+                    //will display all products with the searched string contained in the product name's string
+                    //products[j].searchFlag = true;
+                    cards[i].style.display = "inline-flex";
+                } else {
+                    //products[j].searchFlag = false;
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    }
+}
