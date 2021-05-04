@@ -1,13 +1,22 @@
 // All cards
 var cards = document.getElementsByClassName("card");
+
 // Flag of price filter, flag is false before clicking
 var flagPrice = false;
+
 // Quantity of products in shopping cart
 var number = 0;
+
 // Product added to cart
 var productInCart = {};
+
+// Temp number to remember the original number
 var tempNumber =0;
+
+// The number of clicking the shopping cart icon
 var firstClickShoppingCart=0;
+
+// The subtotal prices of added products
 var subtotal = 0;
 
 /**
@@ -244,6 +253,9 @@ function getDetails(productID){
 }
 
 
+/**
+ * @description Function responsible for adding products to the shopping cart
+ */
 function addToCart(id){
     tempNumber=number;
     number++;
@@ -262,6 +274,9 @@ function addToCart(id){
 }
 
 
+/**
+ * @description Function responsible for managing the number of added product beside the cart icon
+ */
 function showProductNumber(){
     var div = document.getElementById("productQuantity");
     div.innerHTML = 
@@ -271,6 +286,9 @@ function showProductNumber(){
 }
 
 
+/**
+ * @description Function responsible for managing the shopping cart page
+ */
 function clickShoppingCart(){
     firstClickShoppingCart++;
     document.getElementById("find-page").classList.toggle("hide");
@@ -324,6 +342,10 @@ function clickShoppingCart(){
 }
 
 
+/**
+ * @description Function responsible for showing the product info in shopping cart
+ * @param product The name of product
+ */
 function showProduct(product){
     var p;
     for(let i=0; i<products.length; i++){
@@ -344,11 +366,3 @@ function showProduct(product){
     `;
     document.getElementById("myCartList").appendChild(div);
 }
-
-// function calculate(){
-//     var total=0;
-//     for(let i in productInCart){
-//         total += productInCart[i];
-//     }
-//     return total;
-// }
