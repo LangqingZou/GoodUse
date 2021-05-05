@@ -296,6 +296,7 @@ function showProductNumber(){
  * @description Function responsible for managing the shopping cart page
  */
 function clickShoppingCart(){
+    //removeDiv("footer");
     firstClickShoppingCart++;
     if(firstClickShoppingCart % 2 == 0){
         document.getElementById("myCart").style.display = "none";
@@ -404,6 +405,9 @@ function search(){
 }
 
 
+/**
+ * @description Function responsible for showing the toast message when add product to shopping cart
+ */
 function toastMessage(){
     var msgDiv;
     var toastDiv = document.getElementById("toast"),
