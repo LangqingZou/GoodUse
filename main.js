@@ -19,6 +19,11 @@ var firstClickShoppingCart=0;
 // The subtotal prices of added products
 var subtotal = 0;
 
+// Timer for show/hide toast msg
+var toastTimer; 
+
+
+
 /**
  * @description Function responsible for removing the all cards that are already in the page, then add new cards
  */
@@ -271,6 +276,7 @@ function addToCart(id){
     }
     //console.log(productInCart);
     showProductNumber();
+    toastMessage();
 }
 
 
@@ -291,6 +297,12 @@ function showProductNumber(){
  */
 function clickShoppingCart(){
     firstClickShoppingCart++;
+    if(firstClickShoppingCart % 2 == 0){
+        document.getElementById("myCart").style.display = "none";
+    }
+    if((firstClickShoppingCart>1) && (firstClickShoppingCart % 2 != 0)){
+        document.getElementById("myCart").style.display = "flex";
+    }
     document.getElementById("find-page").classList.toggle("hide");
     document.getElementById("main-content").classList.toggle("hide");
     document.getElementById("btn").classList.toggle("hide");
@@ -338,7 +350,7 @@ function clickShoppingCart(){
             subtotal=0;
             document.getElementById("myCartList").appendChild(div);
         }
-    }  
+    }
 }
 
 
@@ -389,4 +401,31 @@ function search(){
             }
         }
     }
+}
+
+
+function toastMessage(){
+    var msgDiv;
+    var toastDiv = document.getElementById("toast"),
+        showing = toastDiv.classList.contains("show");
+    if (!showing) {
+        msgDiv = document.createElement("div");
+        msgDiv.id = "toast-body";
+        msgDiv.className = "toast-body";
+        msgDiv.innerHTML = `<span> One item added! </span>`;
+        toastDiv.appendChild(msgDiv);
+        toastDiv.classList.add("show");
+        msgDiv.style.animation = "zoomin .5s";
+        showing = true;
+    } else {
+        msgDiv = document.getElementById("toast-body");
+        clearTimeout(toastTimer);
+    }
+    toastTimer = setTimeout(() => {
+        msgDiv.style.animation = "zoomout .3s";
+        setTimeout(() => {
+            toastDiv.className = toastDiv.className.replace("show", "");
+            toastDiv.innerHTML = "";
+        }, 300);
+    }, 2500);
 }
