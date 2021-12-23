@@ -1,9 +1,9 @@
 # Introduction
 
-*This web is still a half-finished product.* <br>
-This is a second-hand trading website about "give and buy". The idea came from the fact that people have a lot of unused items, and some of them are exactly what others need. People would sell and buy second-hand products on this side by two main and important features: **Give** and **Find**<br>
+*This web is still a half-finished product.* <br><br>
+This is a second-hand trading website about "give and buy". The idea came from the fact that people have a lot of unused items, and some of them are exactly what others need. People would sell and buy second-hand products on this side by two main and important features: **Give** and **Find**<br><br>
 
-This side uses **Neumorphism UI**. <br>
+This side uses **Neumorphism UI**. <br><br>
 
 
 
